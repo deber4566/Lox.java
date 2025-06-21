@@ -10,8 +10,9 @@ import java.util.List;
 
 //Lox is dynamically typed
 // REPL . READ, EVALUATE, PRINT, LOOP
-
-//ch. 9
+//expressions produce values
+//statements produce side effect
+//ch. 10
 
 public class Lox{
 
