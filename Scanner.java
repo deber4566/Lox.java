@@ -7,11 +7,15 @@ import java.util.Map;
 
 import static lox.lox.TokenType.*;
 
+//this scanner is the tokenizer/lexical analysis. break input into tokens
+//lexer/scanner to break input into tokens
+
+
 public class Scanner {
     private final String source;
     private final List<Token> tokens = new ArrayList<>();
-    private int start = 0;
-    private int current = 0;
+    private int start = 0; //beginning of the list of tokens
+    private int current = 0; //current token
     private int line = 1;
 
     private static final Map<String, TokenType> keywords;
@@ -38,6 +42,7 @@ public class Scanner {
     Scanner(String source) {
         this.source = source;
     }
+
 
     List<Token> scanTokens() {
         while (!isAtEnd()) {
@@ -85,6 +90,7 @@ public class Scanner {
                 }
                 break;
 
+                //ignore whitespace
             case ' ':
 
             case '\r':
@@ -174,6 +180,7 @@ public class Scanner {
         return true;
     }
 
+    //look at current token
     private char peek() {
         if (isAtEnd()) {
             return '\0';
@@ -209,6 +216,7 @@ public class Scanner {
         return current >= source.length();
     }
 
+    //advance to next token
     private char advance() {
         return source.charAt(current ++);
     }

@@ -12,7 +12,12 @@ import java.util.List;
 // REPL . READ, EVALUATE, PRINT, LOOP
 //expressions produce values
 //statements produce side effect
-//ch. 10
+
+// backus naur form for the grammer
+//manual parser using recursive descent
+//tyoy language
+
+//ch. 11.5
 
 public class Lox{
 
@@ -75,6 +80,10 @@ public class Lox{
         if (hadError) {
             return;
         }
+
+        //load resolver only if no errors
+        Resolver resolver = new Resolver(interpreter);
+        resolver.resolve(statements);
         // to be deleted System.out.println(new AstPrinter().print(expression));
         interpreter.interpret(statements);
     }
