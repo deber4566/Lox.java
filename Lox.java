@@ -17,7 +17,7 @@ import java.util.List;
 //manual parser using recursive descent
 //tyoy language
 
-//ch. 11.5
+//ch. 13
 
 public class Lox{
 
@@ -85,6 +85,11 @@ public class Lox{
         Resolver resolver = new Resolver(interpreter);
         resolver.resolve(statements);
         // to be deleted System.out.println(new AstPrinter().print(expression));
+
+        if (hadError) {
+            return;
+        }
+
         interpreter.interpret(statements);
     }
 

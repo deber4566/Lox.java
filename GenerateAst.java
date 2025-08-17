@@ -18,21 +18,29 @@ public class GenerateAst {
         }
         String outputDir = args[0];
         defineAst(outputDir, "Expr", Arrays.asList(
-                "Assign  : Token name, Expr value",
+                "Assign   : Token name, Expr value",
                 "Binary   : Expr left, Token operator, Expr right",
+                "Call     : Expr callee, Token paren, List<Expr> arguments",
+                "Get     : Expr object, Token name",
                 "Grouping : Expr expression",
                 "Literal  : Object value",
                 "Logical  : Expr left, Token operator, Expr right",
+                "Set      : Expr object, Token name, Expr value",
+                "This     : Token keyword",
                 "Unary    : Token operator, Expr right",
                 "Variable : Token name"
         ));
 
         defineAst(outputDir, "Stmt", Arrays.asList(
-                "Block      : List<Stmt statements",
+                "Block      : List<Stmt> statements",
+                "Class      : Token name, List<Stmt.Function> methods",
                 "Expression : Expr expression",
+                "Function   : Token name, List<Token> params," +
+                            " List<Stmt> body",
                 "If         : Expr condition, Stmt thenBranch," +
                             " Stmt elseBranch",
                 "Print      : Expr expression",
+                "Return    : Token keyword, Expr value", //return ... value
                 "Var        : Token name, Expr initializer",
                 "While      : Expr condition, Stmt body"
         ));
@@ -43,7 +51,7 @@ public class GenerateAst {
         String path = outputDir + "/" + baseName + ".java";
         PrintWriter writer = new PrintWriter(path, "UTF-8");
 
-        writer.println("package lox;");
+        writer.println("package lox.lox;");
         writer.println();
         writer.println("import java.util.List;");
         writer.println();
