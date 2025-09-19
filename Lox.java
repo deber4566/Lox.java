@@ -13,11 +13,11 @@ import java.util.List;
 //expressions produce values
 //statements produce side effect
 
-// backus naur form for the grammer
+// backus naur form for the grammar
 //manual parser using recursive descent
-//tyoy language
+//toy language
 
-//ch. 13
+//ch. 13.3.3
 
 public class Lox{
 
